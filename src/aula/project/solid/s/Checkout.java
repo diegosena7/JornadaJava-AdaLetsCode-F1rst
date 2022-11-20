@@ -1,0 +1,62 @@
+package aula.project.solid.s;
+
+import aula.project.solid.s.financeiro.RegistroContabil;
+import aula.project.solid.s.model.Cachorro;
+
+public class Checkout {
+
+    private Double estadia;
+
+    private Double visitante = 150.0;
+    private Double banho;
+    private Double tosa;
+    private Cachorro cachorro;
+
+    public Checkout(Double estadia, Double banho, Double tosa, Cachorro cachorro) {
+        this.estadia = estadia;
+        this.banho = banho;
+        this.tosa = tosa;
+        this.cachorro = cachorro;
+    }
+
+    public Double getEstadia() {
+        return estadia;
+    }
+
+    public void setEstadia(Double estadia) {
+        this.estadia = estadia;
+    }
+
+    public Double getBanho() {
+        return banho;
+    }
+
+    public void setBanho(Double banho) {
+        this.banho = banho;
+    }
+
+    public Double getTosa() {
+        return tosa;
+    }
+
+    public void setTosa(Double tosa) {
+        this.tosa = tosa;
+    }
+
+    public Cachorro getCachorro() {
+        return cachorro;
+    }
+
+    public void setCachorro(Cachorro cachorro) {
+        this.cachorro = cachorro;
+    }
+
+    public Double getValorFinal(boolean apenasEstadia){
+        double somaTotal = this.estadia;
+        if(apenasEstadia == false){
+            somaTotal += this.banho + this.tosa;
+        }
+        RegistroContabil.addRegistroContabil(this.cachorro, somaTotal);
+        return somaTotal;
+    }
+}
