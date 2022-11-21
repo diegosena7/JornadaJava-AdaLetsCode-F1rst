@@ -1,5 +1,6 @@
 package aula.project.solid.s;
 
+import aula.project.solid.o.Calculos;
 import aula.project.solid.s.financeiro.RegistroContabil;
 import aula.project.solid.s.model.Cachorro;
 
@@ -51,12 +52,7 @@ public class Checkout {
         this.cachorro = cachorro;
     }
 
-    public Double getValorFinal(boolean apenasEstadia){
-        double somaTotal = this.estadia;
-        if(apenasEstadia == false){
-            somaTotal += this.banho + this.tosa;
-        }
-        RegistroContabil.addRegistroContabil(this.cachorro, somaTotal);
-        return somaTotal;
+    public Double getValorFinal(Calculos calculo){
+        return calculo.getValorFinal(this);
     }
 }

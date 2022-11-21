@@ -66,5 +66,6 @@ public class Secretaria {
 
     public static void sair(Cachorro cachorro){
         Saida.getValorCheckout(valorEstadia, valorBanho, valorTosa, cachorro);
+        System.out.println(Saida.getValorCheckout(valorEstadia, valorBanho, valorTosa, cachorro));
     }
 }
