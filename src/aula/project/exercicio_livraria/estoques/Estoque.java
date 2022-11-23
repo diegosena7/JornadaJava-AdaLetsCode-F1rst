@@ -12,7 +12,7 @@ public class Estoque<T extends Produtos> {
     }
 
     public List<T> buscaItensDoEstoque() {
-        List<T> listTest = new ArrayList(estoqueListaMap.entrySet());
+        List<T> listTest = new ArrayList(estoqueListaMap.values());
         return listTest;
     }
 
