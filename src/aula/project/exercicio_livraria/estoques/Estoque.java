@@ -31,4 +31,13 @@ public class Estoque<T extends Produtos> {
     public T buscaProdutoPorNome(T estoqueBusca) {
         return estoqueListaMap.get(estoqueBusca.getId());
     }
+
+    public Integer buscaQtidadeEmEstoque(T item){
+        List<T> ts = buscaItensDoEstoque();
+        if (ts.contains(item)){
+            return ts.size();
+        }else {
+            return 0;
+        }
+    }
 }

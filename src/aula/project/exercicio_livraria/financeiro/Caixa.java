@@ -14,8 +14,8 @@ public class Caixa<T extends Produtos> extends RegrasServicos {
         return dinheiro;
     }
 
-    public Caixa(Double dinheiro) {
-        this.dinheiro = dinheiro;
+    public Caixa() {
+
     }
 
     public void setDinheiro(Double dinheiro) {
@@ -32,15 +32,17 @@ public class Caixa<T extends Produtos> extends RegrasServicos {
 
     public Double venda(T produto, Integer qtidade,Integer idadeComprador, TiposProdutos tiposProdutos){
         Double soma = 0.0;
-
+        dinheiro = 0.0;
         if(verificaIdadeParaCompra(idadeComprador)){
             soma = qtidade * produto.getPreco();
             dinheiro += soma;
             Estoque<T> estoque = new Estoque<>();
             estoque.removeItemEmEstoque(produto);
         } if (tiposProdutos.equals(TiposProdutos.FILMES)){
+            System.out.println("Venda finalizada com descontoR$: " + soma);
             descontoComprasLivrosMaiorQue200Reais(soma);
         }
+        System.out.println("Venda finalizada R$: " + soma);
         return soma;
     }
 
