@@ -6,6 +6,7 @@ Curso de Java Avançado
 
 **Java 8** 
 
+Utilizado conceitos de herança, polimorfismo, interfaces, classes abstratas, genérics e sconceitos de SOLID.
 
 ## Autores
 
