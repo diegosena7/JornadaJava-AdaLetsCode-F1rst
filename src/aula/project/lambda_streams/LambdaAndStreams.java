@@ -9,7 +9,8 @@ import java.util.stream.Collectors;
 /*
  Uma função lambda é uma função sem declaração, isto é, não é necessário colocar um nome, um tipo de retorno e o modificador de acesso
  As funções lambda em Java tem a sintaxe definida como (argumento) -> (corpo)
- */
+ Expressões lambda basicamente expressam instâncias de interfaces funcionais (uma interface com método abstrato único é chamada de interface funcional)
+. */
 public class LambdaAndStreams {
 
     public static void main(String[] args) {
