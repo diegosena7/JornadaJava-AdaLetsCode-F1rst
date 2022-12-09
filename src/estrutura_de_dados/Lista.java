@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class Lista <T> implements Comparable<Lista>{
 
-    ListaEncadeada <T> primeiroItem;
+    ListaEncadeada <T> primeiroItem = null;
     ListaEncadeada <T> ultimoItem;
 
     private Integer proximoItem;
@@ -13,9 +13,7 @@ public class Lista <T> implements Comparable<Lista>{
 
     private int tamanho = 0;
 
-    public Lista(){
-        this.primeiroItem = new ListaEncadeada<>();
-    }
+    public Lista() {}
 
     public T add(T dado){
         if(primeiroItem==null){
@@ -29,19 +27,13 @@ public class Lista <T> implements Comparable<Lista>{
             ultimoItem = item;
 
         }
-        System.out.println(primeiroItem.getDado());
-        System.out.println(ultimoItem==null?"":ultimoItem.getDado());
-        System.out.println(primeiroItem);
-        System.out.println(ultimoItem);
-        System.out.println();
-        System.out.println();
         tamanho  ++;
         return dado;
     }
 
     public <T> int getPosicaoBinaria(Lista<? extends T> list, T key, Comparator<? super T> comparator) throws Exception {
         int inicio = 0;
-        int fim = list.proximoItem - 1;
+        int fim = tamanho;
         int itemBuscado = 0;
 
         while (inicio <= fim) {
@@ -107,7 +99,7 @@ public class Lista <T> implements Comparable<Lista>{
         lista.add("Nayara");
         lista.add("Ryan");
 
-        System.out.println(lista.getPosicaoBinaria(lista, "Diego",  Comparator.naturalOrder()));
+        System.out.println("Binary search: " + lista.getPosicaoBinaria(lista, "Ryan",  Comparator.naturalOrder()));
 
         lista.removeItemPorPosicao(2);
     }
