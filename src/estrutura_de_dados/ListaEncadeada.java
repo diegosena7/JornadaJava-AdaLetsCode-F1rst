@@ -13,6 +13,13 @@ public class ListaEncadeada<T> {
 
     private Integer numAnterior;
 
+    public ListaEncadeada() {
+    }
+
+    public ListaEncadeada(Object dado) {
+        this.dado = (T) dado;
+    }
+
     public T getDado() {
         return dado;
     }

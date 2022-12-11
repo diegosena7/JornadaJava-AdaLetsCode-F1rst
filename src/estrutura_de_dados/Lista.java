@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class Lista <T> implements Comparable<Lista>{
 
-    ListaEncadeada <T> primeiroItem = null;
+    ListaEncadeada <T> primeiroItem;
     ListaEncadeada <T> ultimoItem;
 
     private Integer proximoItem;
