@@ -31,24 +31,29 @@ public class Lista <T> implements Comparable<Lista>{
         return dado;
     }
 
-    public <T> int getPosicaoBinaria(Lista<? extends T> list, T key, Comparator<? super T> comparator) throws Exception {
-        int inicio = 0;
-        int fim = tamanho;
-        int itemBuscado = 0;
+    public T getPosicaoBinaria(Integer posicao) throws Exception {
 
-        while (inicio <= fim) {
-            int meio = (inicio + fim) / 2;
-            int comparador = comparator.compare(key, list.getPosicao(meio));
-            if (comparador == 0) {
-                itemBuscado = meio;
-                return itemBuscado;
-            } else if (comparador < 0) {
-                fim = meio - 1;
-            } else {
-                inicio = meio + 1;
+        ListaEncadeada<T> item = null;
+
+        if (tamanho / 2 <= posicao){
+
+            if (posicao == 0) return primeiroItem.getDado();
+
+            item = primeiroItem;
+
+            for (int i = 0; i < posicao; i  ++) {
+                item = item.getProximo();
+            }
+        }else{
+            if (posicao == tamanho - 1) return ultimoItem.getDado();
+
+             item = ultimoItem;
+
+            for (int i = 1; i < tamanho - posicao; i  ++) {
+                item = item.getAnterior();
             }
         }
-        return itemBuscado;
+        return item.getDado();
     }
 
     public T getPosicao(int posicao) throws Exception {
@@ -81,6 +86,7 @@ public class Lista <T> implements Comparable<Lista>{
             itemAnterior.setProximo(null);
         } else {
             itemAnterior.setProximo(itemAtual.getProximo());
+            itemAtual.getProximo().setAnterior(itemAtual.getAnterior());
         }
 
         return itemAtual.getDado();
@@ -99,9 +105,9 @@ public class Lista <T> implements Comparable<Lista>{
         lista.add("Nayara");
         lista.add("Ryan");
 
-        System.out.println("Binary search: " + lista.getPosicaoBinaria(lista, "Ryan",  Comparator.naturalOrder()));
+        System.out.println("Binary search: " + lista.getPosicaoBinaria(1));
 
-        lista.removeItemPorPosicao(2);
+//        lista.removeItemPorPosicao(2);
     }
 
     @Override
