@@ -49,7 +49,7 @@ public class Lista <T> implements Comparable<Lista>{
 
              item = ultimoItem;
 
-            for (int i = 1; i < tamanho - posicao; i  ++) {
+            for (int i = 1; i <= tamanho - posicao; i  ++) {
                 item = item.getAnterior();
             }
         }
